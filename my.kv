@@ -1,0 +1,110 @@
+<Container>:
+    api: api
+    count: count
+    first: first
+    second: second
+    third: third
+    four: four
+    five: five
+    six: six
+
+    orientation: 'vertical'
+
+    ScreenManager:
+        id: screen_manager
+        Screen:
+            name: 'screen1'
+            BoxLayout:
+                size_hint: [1, .5]
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 3
+                    padding: [15, 10, 15, 650]
+                    MDTextField:
+                        id: api
+                        multiline: False
+                        hint_text: "Введите API-токен"
+                        font_size: 20
+                    MDTextField:
+                        id: count
+                        multiline: False
+                        hint_text: "Введите колличество текстовых обработок"
+                        helper_text: "до трех"
+                        font_size: 35
+
+            AnchorLayout:
+                size_hint: [1, .5]
+                anchor_x: 'center'
+                anchor_y: 'bottom'
+                padding: [0, 40]
+                MDRaisedButton:
+                    text: "создать"
+                    size_hint: [.95, .3]
+                    font_size: 45
+                    on_release:
+                        screen_manager.current = 'screen2'
+
+
+        Screen:
+            name: 'screen2'
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 1
+                BoxLayout:
+                    size_hint: [1, .7]
+                    orientation: 'vertical'
+                    BoxLayout:
+                        padding: [0, 0, 0, 60]
+                        orientation: 'vertical'
+                        spacing: 1
+                        MDTextField:
+                            id: first
+                            multiline: False
+                            hint_text: "Если пользователь введет:"
+                            font_size: 25
+                        MDTextField:
+                            id: second
+                            multiline: False
+                            hint_text: "Бот ему ответит:"
+                            font_size: 25
+
+                    BoxLayout:
+                        padding: [0, 0, 0, 75]
+                        orientation: 'vertical'
+                        spacing: 1
+                        MDTextField:
+                            id: third
+                            multiline: False
+                            hint_text: "Если пользователь введет:"
+                            font_size: 25
+                        MDTextField:
+                            multiline: False
+                            id: four
+                            hint_text: "Бот ему ответит:"
+                            font_size: 25
+
+                    BoxLayout:
+                        orientation: 'vertical'
+                        padding: [0, 0, 0, 50]
+                        spacing: 1
+                        MDTextField:
+                            id: five
+                            multiline: False
+                            hint_text: "Если пользователь введет:"
+                            font_size: 25
+                        MDTextField:
+                            id: six
+                            multiline: False
+                            hint_text: "Бот ему ответит:"
+                            font_size: 25
+
+                AnchorLayout:
+                    padding: [0, 0, 0, 45]
+                    size_hint: [1, .3]
+                    anchor_x: 'center'
+                    anchor_y: 'bottom'
+                    MDRaisedButton:
+                        size_hint: [.9, .4]
+                        text: "запустить"
+                        on_release:
+                            root.artem()
